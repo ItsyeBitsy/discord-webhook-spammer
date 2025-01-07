@@ -1,18 +1,22 @@
 # simple discord webhook spammer
-* has the ability to delete webhooks
-* has documentation so you can learn
-* has added proxy support to bypass ratelimits
-# usage
-* for trolling
-* to spam/delete threat actors webhooks
-# how to use
-download main.py and requirements.txt
-install the requirements. (install the requirements.)
 
-then run main.py, normally with `python3 main.py`
+basic tool for spamming discord webhooks with optional proxy support to bypass rate limits.
 
-enter the webhook url and spam it, restart main.py and select option 2 to delete afterwards
+## Features
+- ability to delete webhooks.
+- documentation provided to help you get started coding in python.
+- proxy support for bypassing rate limits (use only if you know what your doing).
 
-not suggested to use proxys unless you know what your doing
+## Usage
+- trolling
+- delete github skid webhooks
+- be cool
 
-make sure to star this !!!
+## How to Use
+1. download `main.py` and `requirements.txt`.
+2. install the required dependencies:  
+   ```bash
+   pip install -r requirements.txt
+3. run main.py using
+   ```bash
+   python3 main.py
