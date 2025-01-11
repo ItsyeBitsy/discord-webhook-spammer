@@ -27,14 +27,15 @@ $$ |  \$$$$  |$$$$$$$  |\$$$$$$$ |\$$$$$$$\ $$$$$$$  |      \$$$$$\$$$$  |\$$$$$
 
 async def send(webhookurl, message, proxies):
     proxy = random.choice(proxies) if proxies else None  # choose a random proxy if there are any
-    connector = aiohttp.ClientSession(connector=proxy) if proxy else None  # use it if there is one
+    connector = aiohttp.TCPConnector() if not proxy else aiohttp.TCPConnector(ssl=False) # checks for proxy and disable ssl for random issues
     async with aiohttp.ClientSession(connector=connector) as session:
-        payload = {"content": message}  # Message we want to send
-        async with session.post(webhookurl, json=payload) as response:  # send the message
+        payload = {"content": message}  # message we want to send
+        async with session.post(webhookurl, json=payload, proxy=proxy) as response:  # send message through proxy
             if response.status == 204:  # checks if it went through
                 print("sent")
             else:  # if it failed
                 print(f"failed: {response.status}")
+
 
 
 async def delete(webhookurl):  # set up our deleting function
